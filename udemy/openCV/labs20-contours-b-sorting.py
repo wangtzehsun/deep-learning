@@ -50,6 +50,7 @@ def get_contour_areas(contours):
 image = cv2.imread('../../car//image/bunchofshapes.jpg')
 orginal_image = image
 
+
 # Let's print the areas of the contours before sorting
 print("Contor Areas before sorting",)
 print (get_contour_areas(contours))

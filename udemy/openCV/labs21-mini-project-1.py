@@ -39,7 +39,8 @@ for cnt in contours:
         # cv2.boundingRect returns the top left and then width and
         if abs(w - h) <= 3:
             shape_name = "Square"
-
+            print('================')
+            print(cnt)
             # Find contour center to place text at the center
             cv2.drawContours(image, [cnt], 0, (0, 125, 255), -1)
             cv2.putText(image, shape_name, (cx - 50, cy), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1)
@@ -49,6 +50,7 @@ for cnt in contours:
             # Find contour center to place text at the center
             cv2.drawContours(image, [cnt], 0, (0, 0, 255), -1)
             M = cv2.moments(cnt)
+
             cx = int(M['m10'] / M['m00'])
             cy = int(M['m01'] / M['m00'])
             cv2.putText(image, shape_name, (cx - 50, cy), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1)
