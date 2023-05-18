@@ -28,6 +28,7 @@ print("Number of Contours found = " + str(len(contours)))
 # Draw all contours
 # Use '-1' as the 3rd parameter to draw all
 cv2.drawContours(image, contours, -1, (0,255,0), 3)
+print(contours)
 
 cv2.imshow('Contours', image)
 cv2.waitKey(0)

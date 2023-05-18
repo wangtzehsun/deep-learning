@@ -17,21 +17,21 @@ def sketch(image):
     ret, mask = cv2.threshold(canny_edges, 70, 255, cv2.THRESH_BINARY_INV)
     return mask
 
-image = cv2.imread('../../car//image/car1.jpg')
-cv2.imshow('Our Live Sketcher', sketch(image))
-cv2.waitKey(0)
+# image = cv2.imread('../../car//image/car1.jpg')
+# cv2.imshow('Our Live Sketcher', sketch(image))
+# cv2.waitKey(0)
 
 # Initialize webcam, cap is the object provided by VideoCapture
 # It contains a boolean indicating if it was sucessful (ret)
 # It also contains the images collected from the webcam (frame)
-# cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)
 #
-# while True:
-#     ret, frame = cap.read()
-#     cv2.imshow('Our Live Sketcher', sketch(frame))
-#     if cv2.waitKey(1) == 13:  # 13 is the Enter Key
-#         break
+while True:
+    ret, frame = cap.read()
+    cv2.imshow('Our Live Sketcher', sketch(frame))
+    if cv2.waitKey(1) == 13:  # 13 is the Enter Key
+        break
 
 # Release camera and close windows
-# cap.release()
+cap.release()
 cv2.destroyAllWindows()
